@@ -1,0 +1,71 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.heading {
+    position: absolute; 
+    top: 0px; 
+    left: 600px; 
+    z-index: 22; 
+    color: #E52B50; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container { 
+    height: 400px;
+    width: 800px;
+    border: 1px solid #E52B50;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E52B50;
+
+    box-shadow: 24px 18px 10px 0px goldenrod;
+}
+
+.row {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px 10px;
+    height: 50px;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row label {
+    color: white;
+}
+.row input {
+    width: 450px;
+    border: 1px solid red;
+    outline: none;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.lastRow {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 10px 10px;
+    border: 1px solid #E52B50;
+}
+
+.lastRow button {
+    height: 35px;
+    width: 150px;
+    border-radius: 15px;
+    border: none;
+
+    color: #E52B50;
+    background-color: white ;
+    cursor: pointer;
+
+}

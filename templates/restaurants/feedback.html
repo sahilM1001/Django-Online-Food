@@ -1,0 +1,56 @@
+{% extends 'restaurants/restaurantMaster.html' %}
+{% load static %}
+
+{% block mycontent %}
+       <main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello Admin</h1>
+                        <p>Welcome to Feedbacks</p>
+                    </div>
+                </div>
+
+                
+                <!--User Table Part START-->
+                <div class="charts_user">
+                    <div class="table_container">
+                        <div class="table_title">
+                            <div>
+                                <h1>Feedback Details</h1>
+                                <p>Data From Feedback Table</p>
+                            </div>
+                        <hr>
+                        <br>
+                              <table border='1' class="tg">
+                            <thead class="table_header">
+                              <tr>
+                                <th>Feedback Id </th>
+                                <th>User ID </th>
+                                <th>Feedback Details</th>
+                                <th>Feedback Date</th>
+                              </tr>
+                            </thead>
+                            {% for i in feedback %}
+                              <tr class="table_row">
+                              <td class="tg-0lax">{{i.0}}</td>
+                              <td class="tg-0lax">{{i.1}}</td>
+                              <td class="tg-0lax">{{i.2}}</td>
+                              <td class="tg-0lax">{{i.3}}</td>
+                              </tr>
+                            {% endfor %}
+                            </tbody>
+                            </table>
+                    </div>
+                </div>
+                <!--User Table Part END-->
+            </div>
+        </main>
+
+        
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+
+{% endblock %}

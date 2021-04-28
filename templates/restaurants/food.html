@@ -1,0 +1,141 @@
+{% extends 'restaurants/restaurantMaster.html' %}
+{% load static %}
+
+{% block mycontent %}
+        <main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello</h1>
+                        <p>Welcome to Food Item Management</p>
+                    </div>
+                </div>
+
+                
+                <div class="charts_food" style="margin-top: 50px">
+
+                    <div class="charts__left">
+                        <div class="charts__left__title">
+                            <div>
+                                <h1>Food Items</h1>
+                                <p>Add/Update food items</p>
+                            </div>
+                            
+                        </div><br>
+
+
+                        <div class="food">
+                            <form id="addForm">
+                                <div class="formInputs">
+                                {% csrf_token %}
+                                    <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+                                    <input name="txt1" type="number" class="user-input" placeholder="Food Item ID" maxlength="10"/>
+                                </div>
+
+                                <div class="formInputs">
+                                    <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+                                    <input name="txt2" type="text" class="user-input" placeholder="Food Item Category" />
+                                </div>
+
+                                 <div class="formInputs">
+                                    <i class="fa fa-lemon-o fa-2x" aria-hidden="true"></i>
+                                    <input name="txt3" type="text" class="user-input" placeholder="Food Item Name" minlength="5" maxlength="25"/>
+                                </div>
+
+                                <div class="formInputs">
+                                    <i class="fa fa-inr fa-2x" aria-hidden="true"></i>
+                                    <input name="txt4" type="number" class="user-input" placeholder="Food Item Price" style="margin-left: 10px;"/>
+                                </div>
+                            </form>
+                                <input type="button" class="button1" value="ADD" />             
+                                <input type="button" class="button1" value="UPDATE" />
+                            </div>
+                                
+                        </div>
+
+                        <div class="food">
+                            
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <br>
+                    
+
+                    <div class="charts__right">
+                        <div class="charts__right__title">
+                            <div>
+                                <h1>Food Categories</h1>
+                                <p>For Ahmedabad, Gujarat, India</p>
+                            </div>
+                            <i class="fa fa-inr"></i>
+                        </div>
+                        
+                        <div class="charts__right__cards">
+                           
+                            <div class="card1">
+                                <h1>North-Indian</h1>
+                                <p>35</p>
+                            </div>
+
+                            <div class="card2">
+                                <h1>Chinese</h1>
+                                <p>20</p>
+                            </div>
+
+                            <div class="card3">
+                                <h1>South-Indian</h1>
+                                <p>15</p>
+                            </div>
+
+                            <div class="card4">
+                                <h1>Rajasthani</h1>
+                                <p>15</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                <!--User Table Part START-->
+                <div class="charts_user">
+                    <div class="table_container">
+                        <div class="table_title">
+                            <div>
+                                <h1>Food Details</h1>
+                                <p>Data From Food Items Table</p>
+                            </div>
+                        <hr>
+                        <br>
+                              <table border='1' class="tg">
+                            <thead class="table_header">
+                              <tr>
+                                <th>Food Id </th>
+                                <th>Food Category</th>
+                                <th>Food Name</th>
+                                <th>Food Price</th>
+                              </tr>
+                            </thead>
+                            {% for i in food %}
+                              <tr class="table_row">
+                              <td class="tg-0lax">{{i.0}}</td>
+                              <td class="tg-0lax">{{i.1}}</td>
+                              <td class="tg-0lax">{{i.2}}</td>
+                              <td class="tg-0lax">{{i.3}}</td>
+                              </tr>
+                            </tbody>
+                            {% endfor %}
+                            </table>
+                    </div>
+                </div>
+                <!--User Table Part END-->
+            </div>
+        </main>
+        
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+{%endblock%}

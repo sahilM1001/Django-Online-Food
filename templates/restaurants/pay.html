@@ -1,0 +1,61 @@
+{% extends 'restaurants/restaurantMaster.html' %}
+{% load static %}
+
+{% block mycontent %}
+
+        <main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello</h1>
+                        <p>Welcome to Payment Management</p>
+                    </div>
+                </div>
+
+                
+                <div class="charts_user">
+
+                    
+
+                </div>
+
+                <br><br>
+                <!--User Table Part START-->
+                <div class="charts_user">
+                    <div class="table_container">
+                        <div class="table_title">
+                            <div>
+                                <h1>Payment Details</h1>
+                                <p>Data From Payment Table</p>
+                            </div>
+                        <hr>
+                        <br>
+                              <table border='1' class="tg">
+                            <thead class="table_header">
+                              <tr>
+                                <th>Payment Id </th>
+                                <th>Order ID </th>
+                                <th>Payment Mode</th>
+                                <th>Payment Date</th>
+                              </tr>
+                            </thead>
+                            {% for i in payment %}
+                              <tr class="table_row">
+                              <td class="tg-0lax">{{i.0}}</td>
+                              <td class="tg-0lax">{{i.1}}</td>
+                              <td class="tg-0lax">{{i.2}}</td>
+                              <td class="tg-0lax">{{i.3}}</td>
+                              </tr>
+                            {% endfor %}
+                            </table>
+                    </div>
+                </div>
+                <!--User Table Part END-->
+            </div>
+        </main>
+        
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+{%endblock%}

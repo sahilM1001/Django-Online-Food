@@ -1,0 +1,103 @@
+{% extends 'admin/adminMaster.html' %}  
+{% load static %}      
+{% block admincontent %}
+<main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello Admin</h1>
+                        <p>Welcome to User Management</p>
+                    </div>
+                </div>
+
+                
+                <div class="charts_user">
+
+                    
+
+                    <br>
+                    <br>
+                    
+
+                    <div class="charts__right">
+                        <div class="charts__right__title">
+                            <div>
+                                <h1>User Segmentation</h1>
+                                <p>For Ahmedabad, Gujarat, India</p>
+                            </div>
+                            <i class="fa fa-inr"></i>
+                        </div>
+                        
+                        <div class="charts__right__cards">
+                           
+                            <div class="card1">
+                                <h1>Admin</h1>
+                                <p>1</p>
+                            </div>
+
+                            <div class="card2">
+                                <h1>Users</h1>
+                                <p>500</p>
+                            </div>
+
+                            <div class="card3">
+                                <h1>Restaurants</h1>
+                                <p>150</p>
+                            </div>
+
+                            <div class="card4">
+                                <h1>Total Users</h1>
+                                <p>651</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                <!--User Table Part START-->
+                <div class="charts_user">
+                    <div class="table_container">
+                        <div class="table_title">
+                            <div>
+                                <h1>User Details</h1>
+                                <p>Data From User Table</p>
+                            </div>
+                        <hr>
+                        <br>
+                              <table border='1' class="tg">
+                            <thead class="table_header">
+                              <tr>
+                                <th>User ID </th>
+                                <th>Type ID </th>
+                                <th>Name</th>
+                                <th>Mobile no.</th>
+                                <th>email </th>
+                                <th>Address</th>
+                                <th>DOB</th>
+                              </tr>
+                            </thead>
+                            {% for i in userDetails %}
+                              <tr class="table_row">
+                              <td class="tg-0lax">{{i.0}}</td>
+                              <td class="tg-0lax">{{i.1}}</td>
+                              <td class="tg-0lax">{{i.2}}</td>
+                              <td class="tg-0lax">{{i.3}}</td>
+                              <td class="tg-0lax">{{i.4}}</td>
+                              <td class="tg-0lax">{{i.5}}</td>
+                              <td class="tg-0lax">{{i.6}}</td>
+                              </tr>
+                            </tbody>
+                            {% endfor %}
+                            </table>
+                    </div>
+                </div>
+                <!--User Table Part END-->
+            </div>
+        </main>
+        
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'restaurants/restaurantMaster.html' %}
+{% load static %}
+
+{% block mycontent %}
+                        <div class="food">
+                            <form id="addForm">
+                                <div class="formInputs">
+                                {% csrf_token %}
+                                    <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+                                    <input name="txt1" type="number" class="user-input" placeholder="Food Item ID" maxlength="10"/>
+                                </div>
+
+                                <div class="formInputs">
+                                    <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+                                    <input name="txt2" type="text" class="user-input" placeholder="Food Item Category" />
+                                </div>
+
+                                 <div class="formInputs">
+                                    <i class="fa fa-lemon-o fa-2x" aria-hidden="true"></i>
+                                    <input name="txt3" type="text" class="user-input" placeholder="Food Item Name" minlength="5" maxlength="25"/>
+                                </div>
+
+                                <div class="formInputs">
+                                    <i class="fa fa-inr fa-2x" aria-hidden="true"></i>
+                                    <input name="txt4" type="number" class="user-input" placeholder="Food Item Price" style="margin-left: 10px;"/>
+                                </div>
+                            </form>
+                                <input type="button" class="button1" value="ADD" />             
+                                <input type="button" class="button1" value="UPDATE" />
+                        </div>
+{%endblock%}

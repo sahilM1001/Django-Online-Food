@@ -1,0 +1,43 @@
+{%extends 'admin/adminMaster.html'%}
+{% load static %}
+
+{% block admincontent %}
+
+<div class="charts_food" style="margin-top: 50px">
+
+    <div class="charts__left">
+        <div class="charts__left__title">
+            <div>
+                <h1>Add Users</h1>
+                
+            </div>
+            
+        </div><br>
+
+
+        <div class="food">
+            <form id="addForm">
+                <div class="formInputs">
+                    <i class="fa fa-lemon-o fa-2x" aria-hidden="true"></i>
+                    <input type="text" class="user-input" placeholder="User Type" minlength="5" maxlength="25"/>
+                </div>
+
+            
+                <div class="formInputs">
+                    <i class="fa fa-inr fa-2x" aria-hidden="true"></i>
+                    <input type="text" class="user-input" placeholder="User Name" style="margin-left: 10px;"/>
+                </div>
+                
+                <div class="formInputs">
+                    <input type="button" class="button1" value="ADD"  />             
+                    <input type="button" class="button1" value="UPDATE" />
+                </div>
+            </form>
+            
+            
+                
+        </div>
+
+        </div>
+</div>
+{%endblock%}

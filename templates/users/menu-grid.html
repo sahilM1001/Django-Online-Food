@@ -1,0 +1,423 @@
+{% extends 'users/userMaster.html' %}
+{% load static %}
+
+{% block usercontent %}
+                        <div class="col-lg-1 col-sm-4 col-md-4 order-2 order-lg-3">
+                            <div class="header__right d-flex justify-content-end">
+                                <div class="log__in">
+                                    <a class="accountbox-trigger" href="#"><i class="zmdi zmdi-account-o"></i></a>
+                                </div>
+                                <div class="shopping__cart">
+                                    <a class="minicart-trigger" href="#"><i style="position: relative; top: 40px" class="zmdi zmdi-shopping-basket"></i></a>
+                                    <div class="shop__qun">
+                                        <span>02</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                        <div class="mobile-menu d-block d-lg-none"></div>
+                    <!-- Mobile Menu -->
+                </div>
+            </div>
+            <!-- End Mainmenu Area -->
+        </header>
+        <!-- End Header Area -->
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area bg-image--17">
+            <div class="ht__bradcaump__wrap d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">view menu</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-long-arrow-right"></i></span>
+                                  <span class="breadcrumb-item active">View menu</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area --> 
+        <!-- Start Menu Grid Area -->
+        <section class="food__menu__grid__area section-padding--lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="grid__show d-flex justify-content-between align-items-center">
+                           <div class="grid__show__btn">
+                                <a class="food__btn" href="/user/menu">All Products</a>
+                            </div>
+                            <div class="grid__show__item">
+                              {% for category in category %}
+                                    <a class="food__btn" href="/user/menufilter/{{category.0}}">{{category.1}}</a>
+                              {% endfor %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt--30">
+                    <!-- Start Single Menu Item -->
+
+                    {% for foodItems in foodItems %}
+                    <div class="col-lg-4 col-sm-12 col-md-6">
+                        <div class="menu__grid__item wow fadeInLeft">
+                            <div class="menu__grid__thumb">
+                                <a href="menu-details.html">
+                                    <img src="{%static 'user/images/product/sm-img/'%}{{foodItems.4}}" style="width:450px;height:250px;" alt="grid item images">
+                                </a>
+                                <div class="grid__item__offer">
+                                    <span>Special</span>
+                                    <span>Offer</span>
+                                </div>
+                            </div>
+                            <div class="menu__grid__inner">
+                                <div class="menu__grid__details">
+                                    <h2><a href="menu-details.html">{{foodItems.2}}</a></h2>
+                                    <ul class="grid__prize__list">
+                                        <li class="old__prize" style="text-decoration: line-through;">150</li>
+                                        <li>{{foodItems.1}}</li>
+                                    </ul>
+                                    
+                                </div>
+                                <style>
+                                .mybtn{
+                                    background: #d50c0d none repeat scroll 0 0;
+    color: #ffffff;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    width:450px;
+    letter-spacing: 2px;
+    line-height: 50px;
+    text-transform: uppercase;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+                                }
+                                </style>
+                                <div class="grid__addto__cart__btn">
+                                   <form method="post" action="/user/add-to-cart/{{foodItems.0}}" > 
+                                   
+											 {% csrf_token %} 
+									 <input type="hidden" name="pid" value="{{foodItems.0}}" />
+									 <input type="hidden" name="price" value="{{foodItems.3}}" />
+                                     <input type="hidden" name="qty" value="1" />
+                                     
+                                   <input type="submit" class="mybtn"  value="Add to Cart">
+                                   </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     {% endfor %}
+                    <!-- End Single Menu Item -->
+                   
+                    <!-- End Single Menu Item -->
+                    <!-- Start Single Menu Item -->
+              
+            </div>
+        </section>
+        <!-- End Menu Grid Area -->
+        <footer class="footer__area footer--1">
+            <div class="footer__wrapper bg__cat--1 section-padding--lg">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start Single Footer -->
+                        <div class="col-md-6 col-lg-3 col-sm-12">
+                            <div class="footer">
+                                <h2 class="ftr__title">About Food O City</h2>
+                                <div class="footer__inner">
+                                    <div class="ftr__details">
+                                        <p>Upcoming Online Food Ordering & Delivery Service</p>
+                                        <div class="ftr__address__inner">
+                                            <div class="ftr__address">
+                                                <div class="ftr__address__icon">
+                                                    <i class="zmdi zmdi-home"></i>
+                                                </div>
+                                                <div class="frt__address__details">
+                                                    <p>Ajwad, Ahmedabad</p>
+                                                </div>
+                                            </div>
+                                            <div class="ftr__address">
+                                                <div class="ftr__address__icon">
+                                                    <i class="zmdi zmdi-phone"></i>
+                                                </div>
+                                                <div class="frt__address__details">
+                                                    <p><a href="#">+91 99749 21248</a></p>
+                                                    <p><a href="#">+91 96367 64247</a></p>
+                                                    <p><a href="#">+91 86900 19127</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="ftr__address">
+                                                <div class="ftr__address__icon">
+                                                    <i class="zmdi zmdi-email"></i>
+                                                </div>
+                                                <div class="frt__address__details">
+                                                    <p><a href="#">foodocitydelivery@gmail.com</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="social__icon">
+                                            <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-google"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
+                                            <li><a href="#"><i class="zmdi zmdi-rss"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Footer -->
+                        <!-- Start Single Footer -->
+                        <div class="col-md-6 col-lg-3 col-sm-12 sm--mt--40">
+                            <div class="footer gallery">
+                                <h2 class="ftr__title">Our Gallery</h2>
+                                <div class="footer__inner">
+                                    <ul class="sm__gallery__list">
+                                        <li><a href="#"><img class="galleryList" src="images/gallery/sm-img/burger.jpg" alt="gallery images"></a></li>
+                                        <li><a href="#"><img class="galleryList" src="images/gallery/sm-img/paneerChilli.jpg" alt="gallery images"></a></li>
+                                        <li><a href="#"><img class="galleryList" src="images/gallery/sm-img/chickenfry.jpg" alt="gallery images"></a></li>
+                                        <li><a href="#"><img class="galleryList" src="images/gallery/sm-img/guava.jpg" alt="gallery images"></a></li>
+                                        <li><a href="#"><img class="galleryList" src="images/gallery/sm-img/schezwan.jpg" alt="gallery images"></a></li>
+                                        <li><a href="#"><img class="galleryList" src="images/gallery/sm-img/paneer.jpg" alt="gallery images"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Footer -->
+                        <!-- Start Single Footer -->
+                        <div class="col-md-6 col-lg-3 col-sm-12 md--mt--40 sm--mt--40">
+                            <div class="footer">
+                                <h2 class="ftr__title">Opening Time</h2>
+                                <div class="footer__inner">
+                                    <ul class="opening__time__list">
+                                        <li>Saturday<span>.......</span>9am to 11pm</li>
+                                        <li>Sunday<span>.......</span>9am to 11pm</li>
+                                        <li>Monday<span>.......</span>9am to 11pm</li>
+                                        <li>Tuesday<span>.......</span>9am to 11pm</li>
+                                        <li>Wednesday<span>.......</span>9am to 11pm</li>
+                                        <li>Thursday<span>.......</span>9am to 11pm</li>
+                                        <li>Friday<span>.......</span>9am to 11pm</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Footer -->
+                        <!-- Start Single Footer -->
+                        <div class="col-md-6 col-lg-3 col-sm-12 md--mt--40 sm--mt--40">
+                            <div class="footer">
+                                <h2 class="ftr__title">Our Recommendations</h2>
+                                <div class="footer__inner">
+                                    <div class="lst__post__list">
+                                        <div class="single__sm__post">
+                                            <div class="sin__post__thumb">
+                                                <a href="blog-details,html">
+                                                    <img class="recommendationImg" src="images/blog/sm-img/pizza.jpg" alt="blog images">
+                                                </a>
+                                            </div>
+                                            <div class="sin__post__details">
+                                                <h6><a href="blog-details.html">Double Cheese Pizza </a></h6>
+                                                <p>Your favourite pizza with double the cheese</p>
+                                            </div>
+                                        </div>
+                                        <div class="single__sm__post">
+                                            <div class="sin__post__thumb">
+                                                <a href="blog-details,html">
+                                                    <img class="recommendationImg" src="images/blog/sm-img/cheesecake.jpg" alt="blog images">
+                                                </a>
+                                            </div>
+                                            <div class="sin__post__details">
+                                                <h6><a href="blog-details.html">Cheese Cake</a></h6>
+                                                <p>A dessert everyone looks forward to eating</p>
+                                            </div>
+                                        </div>
+                                        <div class="single__sm__post">
+                                            <div class="sin__post__thumb">
+                                                <a href="blog-details,html">
+                                                    <img class="recommendationImg" src="images/blog/sm-img/choco_lava.jpg" alt="blog images">
+                                                </a>
+                                            </div>
+                                            <div class="sin__post__details">
+                                                <h6><a href="blog-details.html">Choco Lava Cake</a></h6>
+                                                <p>We deliver the best choco lava cakes in the town.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Footer -->
+                    </div>
+                </div>
+            </div>
+            <div class="copyright bg--theme">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="copyright__inner">
+                                <div class="cpy__right--left">
+                                    <p>@All Right Reserved. Food-O-City</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Area -->
+       <!-- Login Form -->
+       <div class="accountbox-wrapper">
+        <div class="accountbox text-left">
+            <ul class="nav accountbox__filters" id="myTab" role="tablist">
+                <li>
+                    <a class="active" id="log-tab" data-toggle="tab" href="#log" role="tab" aria-controls="log" aria-selected="true">Login</a>
+                </li>
+                <li>
+                    <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+                </li>
+            </ul>
+            <div class="accountbox__inner tab-content" id="myTabContent">
+                <div class="accountbox__login tab-pane fade show active" id="log" role="tabpanel" aria-labelledby="log-tab">
+                    <form action="#">
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="text" placeholder="Email" required maxlength="20" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid Email Address">
+                        </div>
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="password" placeholder="Password" required minlength="6" maxlength="10">
+                        </div>
+                        <div class="single-input">
+                            <button type="submit" class="food__btn"><span>Go</span></button>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="accountbox__register tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <form action="#">
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="text" placeholder="User name" required maxlength="20" pattern="[A-Za-z]" title="Only Alphabetic Characters Please">
+                        </div>
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="email" placeholder="Email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        </div>
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="number" placeholder="Mobile Number" required pattern="\d*" title="Numbers Only Please">
+                        </div>
+
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="text" placeholder="Address" required maxlength="150">
+                        </div>
+                        <div class="single-input">
+                            <select class="select" required>
+                                <option>Select</option>
+                                <option>Admin</option>
+                                <option>Restaurant</option>
+                                <option>Customer</option>
+                            </select>
+                        </div>
+                        <div class="single-input">
+                            <input class="cr-round--lg" type="password" placeholder="Password" required minlength="6" maxlength="10">
+                        </div>
+                        
+                        <div class="single-input">
+                            <button type="submit" class="food__btn"><span>Sign Up</span></button>
+                        </div>
+                    </form>
+                </div>
+                <span class="accountbox-close-button"><i class="zmdi zmdi-close"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- //Login Form -->
+            <!-- Cartbox -->
+        <div class="cartbox-wrap">
+            <div class="cartbox text-right">
+                <button class="cartbox-close"><i class="zmdi zmdi-close"></i></button>
+                <div class="cartbox__inner text-left">
+                    <div class="cartbox__items">
+                        <!-- Cartbox Single Item -->
+                        <div class="cartbox__item">
+                            <div class="cartbox__item__thumb">
+                                <a href="product-details.html">
+                                    <img src="images/blog/sm-img/1.jpg" alt="small thumbnail">
+                                </a>
+                            </div>
+                            <div class="cartbox__item__content">
+                                <h5><a href="product-details.html" class="product-name">Vanila Muffin</a></h5>
+                                <p>Qty: <span>01</span></p>
+                                <span class="price">$15</span>
+                            </div>
+                            <button class="cartbox__item__remove">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div><!-- //Cartbox Single Item -->
+                        <!-- Cartbox Single Item -->
+                        <div class="cartbox__item">
+                            <div class="cartbox__item__thumb">
+                                <a href="product-details.html">
+                                    <img src="images/blog/sm-img/2.jpg" alt="small thumbnail">
+                                </a>
+                            </div>
+                            <div class="cartbox__item__content">
+                                <h5><a href="product-details.html" class="product-name">Wheat Bread</a></h5>
+                                <p>Qty: <span>01</span></p>
+                                <span class="price">$25</span>
+                            </div>
+                            <button class="cartbox__item__remove">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div><!-- //Cartbox Single Item -->
+                        <!-- Cartbox Single Item -->
+                        <div class="cartbox__item">
+                            <div class="cartbox__item__thumb">
+                                <a href="product-details.html">
+                                    <img src="images/blog/sm-img/3.jpg" alt="small thumbnail">
+                                </a>
+                            </div>
+                            <div class="cartbox__item__content">
+                                <h5><a href="product-details.html" class="product-name">Mixed Fruits Pie</a></h5>
+                                <p>Qty: <span>01</span></p>
+                                <span class="price">$30</span>
+                            </div>
+                            <button class="cartbox__item__remove">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div><!-- //Cartbox Single Item -->
+                    </div>
+                    <div class="cartbox__total">
+                        <ul>
+                            <li><span class="cartbox__total__title">Subtotal</span><span class="price">$70</span></li>
+                            <li class="shipping-charge"><span class="cartbox__total__title">Shipping Charge</span><span class="price">$05</span></li>
+                            <li class="grandtotal">Total<span class="price">$75</span></li>
+                        </ul>
+                    </div>
+                    <div class="cartbox__buttons">
+                        <a class="food__btn" href="cart.html"><span>View cart</span></a>
+                        <a class="food__btn" href="checkout.html"><span>Checkout</span></a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- //Cartbox -->   
+	</div><!-- //Main wrapper -->
+
+	<!-- JS Files -->
+	<script src="js/vendor/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/active.js"></script>
+
+    {% endblock %}
+</body>
+</html>

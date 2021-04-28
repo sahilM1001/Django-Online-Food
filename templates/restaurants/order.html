@@ -1,0 +1,95 @@
+{% extends 'restaurants/restaurantMaster.html' %}
+{% load static %}
+
+{% block mycontent %} 
+          <nav class="navbar">
+            <div class="nav_icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="navbar__left">
+                <a href="../../AdminSide/Admin Panel/index.html">Admin</a>
+                <a href="../../foodocity/foodocity/index.html">Website</a>
+                <a class="active_link" href="index.html">Restaurants</a>
+                
+            </div>
+            <div class="navbar__right">
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-clock-o"></i>
+                </a>
+                <a href="#">
+                    <img width="30" src="assets/avatar.svg" alt="Avatar image">
+                </a>
+            </div>
+        </nav>
+        <main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello Admin</h1>
+                        <p>Welcome to Order Management</p>
+                    </div>
+                </div>
+
+                
+
+
+                <div class="charts_user">
+
+                    
+
+                    <br>
+                    <br>
+                    
+
+                    
+                </div>
+
+                <br><br>
+                <!--User Table Part START-->
+                <div class="charts_user">
+                    <div class="table_container">
+                        <div class="table_title">
+                            <div>
+                                <h1>Order Details</h1>
+                                <p>Data From Order Table</p>
+                            </div>
+                        <hr>
+                        <br>
+                              <table border='1' class="tg">
+                            <thead class="table_header">
+                              <tr>
+                                <th>Order  Detail ID </th>
+                                <th>Order ID </th>
+                                <th>Order Status</th>
+                                <th>Order Quantity</th>
+                                <th>Food ID</th>
+                                <th>Payment ID</th>
+                              </tr>
+                            </thead>
+                            {% for i in order %}
+                              <tr class="table_row">
+                              <td class="tg-0lax">{{i.0}}</td>
+                              <td class="tg-0lax">{{i.1}}</td>
+                              <td class="tg-0lax">{{i.2}}</td>
+                              <td class="tg-0lax">{{i.3}}</td>
+                              <td class="tg-0lax">{{i.4}}</td>
+                              <td class="tg-0lax">{{i.5}}</td>
+                              </tr>
+                            {% endfor %}
+                            </table>
+                    </div>
+                </div>
+                <!--User Table Part END-->
+            </div>
+        </main>
+        
+        
+    </div>
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+{% endblock %}

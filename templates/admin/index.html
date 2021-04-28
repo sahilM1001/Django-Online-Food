@@ -1,0 +1,106 @@
+{% extends 'admin/adminMaster.html' %}
+{% load static %}
+
+{% block admincontent %}
+<main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello Admin</h1>
+                        <p>Welcome to your dashboard</p>
+                    </div>
+                </div>
+
+                <div class="main__cards">
+                   
+                    <div class="cards">
+                        <i class="fa fa-bomb fa-2x text-lightblue"></i>
+                        <div class="cards__inner">
+                            <p class="text-primary-p">Total orders</p>
+                            <span class="font-bold text-title">1500</span>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <i class="fa fa-money fa-2x text-red"></i>
+                        <div class="cards__inner">
+                            <p class="text-primary-p">Total Revenue</p>
+                            <span class="font-bold text-title">15,00,000</span>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <i class="fa fa-times fa-2x t"></i>
+                        <div class="cards__inner">
+                            <p class="text-primary-p">Cancelled Orders</p>
+                            <span class="font-bold text-title">100</span>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <i class="fa fa-percent fa-2x t"></i>
+                        <div class="cards__inner">
+                            <p class="text-primary-p">Profit % </p>
+                            <span class="font-bold text-title">25</span>
+                        </div>
+                    </div>
+                
+                </div>
+
+                <div class="charts">
+
+                    <div class="charts__left">
+                        <div class="charts__left__title">
+                            <div>
+                                <h1>Daily Reports</h1>
+                                <p>Ahmedabad, Gujarat, India</p>
+                            </div>
+                            <i class="fa fa-inr"></i>
+                        </div>
+                        <div id="apex1"></div>
+                    </div>
+
+                    <div class="charts__right">
+                        <div class="charts__right__title">
+                            <div>
+                                <h1>Stats Reports</h1>
+                                <p>Ahmedabad, Gujarat, India</p>
+                            </div>
+                            <i class="fa fa-inr"></i>
+                        </div>
+                        
+                        <div class="charts__right__cards">
+                           
+                            <div class="card1">
+                                <h1>Income</h1>
+                                <p>Rs 1,00,000</p>
+                            </div>
+
+                            <div class="card2">
+                                <h1>Sales</h1>
+                                <p>Rs 5,00,000</p>
+                            </div>
+
+                            <div class="card3">
+                                <h1>Users</h1>
+                                <p>175</p>
+                            </div>
+
+                            <div class="card4">
+                                <h1>Orders</h1>
+                                <p>1,500</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        
+    <!--SideBar ENDS-->
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+{% endblock %}
