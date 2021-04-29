@@ -61,14 +61,40 @@ def orderlisting(request):
     data = cur.fetchall()
     #return list(data)
     print(list(data))
-    return render(request, 'admin/order.html', {'orderDetails': data})
+
+    cur.execute("SELECT COUNT(`d_id`) FROM `tbl_delivery` WHERE `d_status` LIKE 'Preparing'")
+    processing = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`d_id`) FROM `tbl_delivery` WHERE `d_status` LIKE 'Picked Up'")
+    out = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`d_id`) FROM `tbl_delivery` WHERE `d_status` LIKE 'Delivered'")
+    deliver = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`o_id`) FROM `tbl_order_master`")
+    total = cur.fetchone()
+
+    #total = admin + user + restaurant
+    return render(request, 'admin/order.html', {'orderDetails': data, 'ordersProcessing': processing[0], 'outDel': out[0], 'totalOrders': total[0], 'delivered': deliver[0]})
 
 def userlisting(request):
     cur.execute("SELECT * FROM `tbl_user`")
     data = cur.fetchall()
     #return list(data)
     print(list(data))
-    return render(request, 'admin/user.html', {'userDetails': data})
+
+    cur.execute("SELECT COUNT(`u_id`) FROM `tbl_user` WHERE `type_id` = 1")
+    admin = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`u_id`) FROM `tbl_user` WHERE `type_id` = 3")
+    user = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`u_id`) FROM `tbl_user` WHERE `type_id` = 2")
+    restaurant = cur.fetchone()
+
+    total = admin + user + restaurant
+
+    return render(request, 'admin/user.html', {'userDetails': data, 'userCount': user[0], 'resCount': restaurant[0], 'adminCount': admin[0], 'totalUser': total})
 
 #Admin Page Views END HERE
 

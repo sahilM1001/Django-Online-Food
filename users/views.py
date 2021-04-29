@@ -61,7 +61,6 @@ def cartview(request):
     , cart_tbl.price
     , cart_tbl.product_id
     , cart_tbl.cart_id
-    , tbl_food_items.f_image
 FROM
     tbl_food_items
     INNER JOIN cart_tbl 
