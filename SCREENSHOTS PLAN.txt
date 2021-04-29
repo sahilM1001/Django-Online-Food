@@ -19,6 +19,7 @@ ADMIN SIDE SCREENSHOTS
 1) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-users
 2) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-orders
 3) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-feedbacks
+4) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-food
 
 ---------------------------------------------------------
 RESTAURANT SIDE SCREENSHOTS
@@ -35,5 +36,7 @@ USER SIDE SCREENSHOTS
 1) 2-4 SCREENSHOTS COVERING -> http://127.0.0.1:8000/user/menu
 2) 1/2 MENU FILTERED SCREENSHOTS -> http://127.0.0.1:8000/user/menufilter/102
 3) 1/2 MENU FILTERED SCREENSHOTS -> http://127.0.0.1:8000/user/menufilter/101
+
+
 
 

@@ -1,0 +1,116 @@
+{% extends 'admin/adminMaster.html' %}
+{% load static %}
+
+{% block admincontent %}
+        <main>
+            <div class="main__container">
+                <div class="main__title">
+                    <img src="{%static 'admin/images/hello.svg'%}">
+                    <div class="main__greeting">
+                        <h1>Hello</h1>
+                        <p>Welcome to Food Item Management</p>
+                    </div>
+                </div>
+
+                
+                <div class="charts_food" style="margin-top: 50px">
+
+
+                    <br>
+                    <br>
+                    
+
+                    <div class="charts__right">
+                        <div class="charts__right__title">
+                            <div>
+                                <h1>Food Categories</h1>
+                                <p>For Ahmedabad, Gujarat, India</p>
+                            </div>
+                            <i class="fa fa-inr"></i>
+                        </div>
+                        
+                        <div class="charts__right__cards">
+                           
+                            <div class="card1">
+                                <h1>North-Indian</h1>
+                                <p>{{ NorthIndian }}</p>
+                            </div>
+
+                            <div class="card2">
+                                <h1>Chinese</h1>
+                                <p>{{ chineseFood }}</p>
+                            </div>
+
+                            <div class="card3">
+                                <h1>Total Food Items</h1>
+                                <p>{{totalItem}}</p>
+                            </div>
+
+                            <div class="card4">
+                                <h1>South Indian</h1>
+                                <p>{{southIndian}}</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                <!--User Table Part START-->
+                <div class="charts_user">
+                    <div class="table_container">
+                        <div class="table_title">
+                            <div>
+                                <h1>Food Details</h1>
+                                <p>Data From Food Items Table</p>
+                            </div>
+                        <hr>
+                        <br>
+                              <table border='1' class="tg">
+                            <thead class="table_header">
+                              <tr>
+                                <th>Food Id </th>
+                                <th>Food Category</th>
+                                <th>Food Name</th>
+                                <th>Food Price</th>
+                                <th>Image</th>
+                                <th>Take Action</th>
+                              </tr>
+                            </thead>
+                            {% for i in food %}
+                              <tr class="table_row">
+                              <td class="tg-0lax">{{i.0}}</td>
+                              <td class="tg-0lax">{{i.1}}</td>
+                              <td class="tg-0lax">{{i.2}}</td>
+                              <td class="tg-0lax">Rs {{i.3}}</td>
+                              <td class="tg-0lax">
+                                <img src="{%static 'user/images/product/sm-img/'%}{{i.5}}" style="width:150px;height:150px;" alt="grid item images">
+                              </td>
+                              <td class="tg-0lax">
+                                <a href='/restaurant/delete/{{i.0}}' onclick="return delMsg();">Delete</a></td>
+                              </td>
+                              </tr>
+                            </tbody>
+                            {% endfor %}
+                            </table>
+
+                            <script type="text/javascript">
+                                function delMsg() {
+                                    if (confirm("Are you sure about deleting record?")) {
+                                        alert('1 row deleted.');
+                                        return true;
+                                    }
+                                    else
+                                        return false;
+                                }
+                            </script>
+                    </div>
+                </div>
+                <!--User Table Part END-->
+            </div>
+        </main>
+        
+    <!--Apex Charts cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+{%endblock%}

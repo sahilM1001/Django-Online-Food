@@ -8,6 +8,7 @@ urlpatterns=[
     path('/view-orders', views.orderlisting, name='Order Management'),
     path('/view-feedbacks', views.feedbacklisting, name='Feedbacks Management'),
 
+    path('/view-food',views.foodlisting, name='Food Listing'),
     path('/logout', views.adminLogout, name='Logout')
 
 ]

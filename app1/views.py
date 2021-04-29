@@ -98,5 +98,24 @@ def userlisting(request):
 
     return render(request, 'admin/user.html', {'userDetails': data, 'userCount': user[0], 'resCount': restaurant[0], 'adminCount': admin[0], 'totalUser': total[0]})
 
+def foodlisting(request):
+    cur.execute("SELECT * FROM `tbl_food_items`")
+    data = cur.fetchall()
+    #return list(data)
+    print(list(data))
+
+    cur.execute("SELECT COUNT(f_id) FROM `tbl_food_items`")
+    total = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`f_id`) FROM `tbl_food_items` WHERE `f_category_id` = 101")
+    punjabi = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`f_id`) FROM `tbl_food_items` WHERE `f_category_id` = 102")
+    chinese = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`f_id`) FROM `tbl_food_items` WHERE `f_category_id` = 104")
+    south = cur.fetchone()
+
+    return render(request, 'admin/food.html', {'food': data, 'NorthIndian': punjabi[0], 'chineseFood': chinese[0], 'totalItem': total[0], 'southIndian': south[0]})
 #Admin Page Views END HERE
 
