@@ -30,7 +30,20 @@ def foodlisting(request):
     data = cur.fetchall()
     #return list(data)
     print(list(data))
-    return render(request, 'restaurants/food.html', {'food': data})
+
+    cur.execute("SELECT COUNT(f_id) FROM `tbl_food_items`")
+    total = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`f_id`) FROM `tbl_food_items` WHERE `f_category_id` = 101")
+    punjabi = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`f_id`) FROM `tbl_food_items` WHERE `f_category_id` = 102")
+    chinese = cur.fetchone()
+
+    cur.execute("SELECT COUNT(`f_id`) FROM `tbl_food_items` WHERE `f_category_id` = 104")
+    south = cur.fetchone()
+
+    return render(request, 'restaurants/food.html', {'food': data, 'NorthIndian': punjabi[0], 'chineseFood': chinese[0], 'totalItem': total[0], 'southIndian': south[0]})
 
 def paymentlisting(request):
     cur.execute("SELECT * FROM `tbl_pyt`")
