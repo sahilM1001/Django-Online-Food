@@ -1,0 +1,39 @@
+Github NEW REPO LINK:
+---------------------------------------------------
+https://github.com/sahilM1001/Django-Online-Food.git
+
+STEPS TO RUN PROJECT:
+----------------------------------------------------
+Open XAMPP, run mySQL admin, go to onlinefooddeliverysystem Database, then go to import.
+
+Now import SQL file onlinefooddeliverysystem FINAL.sql from DB folder in project.
+
+New Database should be loaded
+
+go to project folder and run project using python manage.py runserver
+
+NEW SCREENSHOTS NEEDED: 
+--------------------------------------------------------
+ADMIN SIDE SCREENSHOTS
+--------------------------------------------------------
+1) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-users
+2) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-orders
+3) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/foodAdmin/view-feedbacks
+
+---------------------------------------------------------
+RESTAURANT SIDE SCREENSHOTS
+---------------------------------------------------------
+1) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/restaurant
+2) 2 SCREENSHOTS COVERING -> http://127.0.0.1:8000/restaurant/view-food
+3) 2/3 SCREENSHOTS COVERING -> http://127.0.0.1:8000/restaurant/add-food
+4) 1 ZOOMED OUT SCREENSHOT COVERING -> http://127.0.0.1:8000/restaurant/view-orders
+5) 1 ZOOMED OUT SCREENSHOT COVERING -> http://127.0.0.1:8000/restaurant/view-payment
+6) 1 ZOOMED OUT SCREENSHOT COVERING -> http://127.0.0.1:8000/restaurant/view-delivery
+---------------------------------------------------------
+USER SIDE SCREENSHOTS
+---------------------------------------------------------
+1) 2-4 SCREENSHOTS COVERING -> http://127.0.0.1:8000/user/menu
+2) 1/2 MENU FILTERED SCREENSHOTS -> http://127.0.0.1:8000/user/menufilter/102
+3) 1/2 MENU FILTERED SCREENSHOTS -> http://127.0.0.1:8000/user/menufilter/101
+
+

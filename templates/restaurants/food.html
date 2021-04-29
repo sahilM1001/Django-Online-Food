@@ -73,6 +73,7 @@
                                 <th>Food Category</th>
                                 <th>Food Name</th>
                                 <th>Food Price</th>
+                                <th>Image</th>
                                 <th>Take Action</th>
                               </tr>
                             </thead>
@@ -81,7 +82,10 @@
                               <td class="tg-0lax">{{i.0}}</td>
                               <td class="tg-0lax">{{i.1}}</td>
                               <td class="tg-0lax">{{i.2}}</td>
-                              <td class="tg-0lax">{{i.3}}</td>
+                              <td class="tg-0lax">Rs {{i.3}}</td>
+                              <td>
+                                <img src="{%static 'user/images/product/sm-img/'%}{{i.5}}" style="width:150px;height:150px;" alt="grid item images">
+                              </td>
                               <td>
                                 <a href='/restaurant/delete/{{i.0}}' onclick="return delMsg();">Delete</a></td>
                               </td>

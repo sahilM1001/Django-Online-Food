@@ -83,6 +83,9 @@ def userlisting(request):
     #return list(data)
     print(list(data))
 
+    cur.execute("SELECT COUNT(`u_id`) FROM `tbl_user`")
+    total = cur.fetchone()
+
     cur.execute("SELECT COUNT(`u_id`) FROM `tbl_user` WHERE `type_id` = 1")
     admin = cur.fetchone()
 
@@ -92,9 +95,8 @@ def userlisting(request):
     cur.execute("SELECT COUNT(`u_id`) FROM `tbl_user` WHERE `type_id` = 2")
     restaurant = cur.fetchone()
 
-    total = admin + user + restaurant
 
-    return render(request, 'admin/user.html', {'userDetails': data, 'userCount': user[0], 'resCount': restaurant[0], 'adminCount': admin[0], 'totalUser': total})
+    return render(request, 'admin/user.html', {'userDetails': data, 'userCount': user[0], 'resCount': restaurant[0], 'adminCount': admin[0], 'totalUser': total[0]})
 
 #Admin Page Views END HERE
 
