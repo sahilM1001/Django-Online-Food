@@ -9,7 +9,9 @@ urlpatterns=[
     path('/view-feedback', views.feedbacklisting, name='Feedbacks Management'),
     path('/view-payment', views.paymentlisting, name='Payments Management'),
 
-     path('/add-food', views.foodaddprocess, name='Food Item Management'),
-     path('/logout', views.restaurantLogout, name='Restaurant Logout'),
+    path('/add-food', views.foodaddcreate, name='Food Item Management'),
+    path('/logout', views.restaurantLogout, name='Restaurant Logout'),
+    path('/inserted', views.foodaddprocess, name="Food Added"),
 
+    path('/delete/<int:id>', views.foodDelete, name =  'Remove Food Item')
 ]

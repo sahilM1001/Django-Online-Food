@@ -15,50 +15,6 @@
                 
                 <div class="charts_food" style="margin-top: 50px">
 
-                    <div class="charts__left">
-                        <div class="charts__left__title">
-                            <div>
-                                <h1>Food Items</h1>
-                                <p>Add/Update food items</p>
-                            </div>
-                            
-                        </div><br>
-
-
-                        <div class="food">
-                            <form id="addForm">
-                                <div class="formInputs">
-                                {% csrf_token %}
-                                    <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
-                                    <input name="txt1" type="number" class="user-input" placeholder="Food Item ID" maxlength="10"/>
-                                </div>
-
-                                <div class="formInputs">
-                                    <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
-                                    <input name="txt2" type="text" class="user-input" placeholder="Food Item Category" />
-                                </div>
-
-                                 <div class="formInputs">
-                                    <i class="fa fa-lemon-o fa-2x" aria-hidden="true"></i>
-                                    <input name="txt3" type="text" class="user-input" placeholder="Food Item Name" minlength="5" maxlength="25"/>
-                                </div>
-
-                                <div class="formInputs">
-                                    <i class="fa fa-inr fa-2x" aria-hidden="true"></i>
-                                    <input name="txt4" type="number" class="user-input" placeholder="Food Item Price" style="margin-left: 10px;"/>
-                                </div>
-                            </form>
-                                <input type="button" class="button1" value="ADD" />             
-                                <input type="button" class="button1" value="UPDATE" />
-                            </div>
-                                
-                        </div>
-
-                        <div class="food">
-                            
-                        </div>
-
-                    </div>
 
                     <br>
                     <br>
@@ -77,22 +33,22 @@
                            
                             <div class="card1">
                                 <h1>North-Indian</h1>
-                                <p>35</p>
+                                <p>{{ NorthIndian }}</p>
                             </div>
 
                             <div class="card2">
                                 <h1>Chinese</h1>
-                                <p>20</p>
+                                <p>{{ chineseFood }}</p>
                             </div>
 
                             <div class="card3">
-                                <h1>South-Indian</h1>
-                                <p>15</p>
+                                <h1>Total Food Items</h1>
+                                <p>{{totalItem}}</p>
                             </div>
 
                             <div class="card4">
-                                <h1>Rajasthani</h1>
-                                <p>15</p>
+                                <h1>South Indian</h1>
+                                <p>{{southIndian}}</p>
                             </div>
                         
                         </div>
@@ -117,6 +73,7 @@
                                 <th>Food Category</th>
                                 <th>Food Name</th>
                                 <th>Food Price</th>
+                                <th>Take Action</th>
                               </tr>
                             </thead>
                             {% for i in food %}
@@ -125,10 +82,24 @@
                               <td class="tg-0lax">{{i.1}}</td>
                               <td class="tg-0lax">{{i.2}}</td>
                               <td class="tg-0lax">{{i.3}}</td>
+                              <td>
+                                <a href='/restaurant/delete/{{i.0}}' onclick="return delMsg();">Delete</a></td>
+                              </td>
                               </tr>
                             </tbody>
                             {% endfor %}
                             </table>
+
+                            <script type="text/javascript">
+                                function delMsg() {
+                                    if (confirm("Are you sure about deleting record?")) {
+                                        alert('1 row deleted.');
+                                        return true;
+                                    }
+                                    else
+                                        return false;
+                                }
+                            </script>
                     </div>
                 </div>
                 <!--User Table Part END-->

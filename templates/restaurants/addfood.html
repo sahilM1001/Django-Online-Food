@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block mycontent %}
-                        <div class="food">
-                            <form id="addForm">
+                        <div class="food" style="margin-left: 50px; margin-top: 50px; border: 1px solid #e65061; height: 50vh; border-radius: 5px; padding: 10px 10px; background-color: goldenrod">
+                            <form id="addForm" method="POST" action="/restaurant/inserted"  enctype="multipart/form-data">
                                 <div class="formInputs">
                                 {% csrf_token %}
                                     <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
@@ -24,8 +24,26 @@
                                     <i class="fa fa-inr fa-2x" aria-hidden="true"></i>
                                     <input name="txt4" type="number" class="user-input" placeholder="Food Item Price" style="margin-left: 10px;"/>
                                 </div>
+
+                                <input type="submit" class="button1" value="ADD" />
+
                             </form>
-                                <input type="button" class="button1" value="ADD" />             
-                                <input type="button" class="button1" value="UPDATE" />
+                                <div style="position: absolute; top: 60px; left: 60%; margin-top: 50px;">
+                                    <table border="1" class="tg">
+                                        <thead class="table_header">
+                                            <tr>
+                                              <th>Category Id </th>
+                                              <th>Category Name </th>
+                                            </tr>
+                                          </thead>
+                                        {% for i in categories%}
+                                        <tr class="table_row">
+                                            <td class="tg-0lax">{{i.0}}</td>
+                                            <td class="tg-0lax" style="width: 200px;">{{i.1}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                    
+                                </div>
                         </div>
 {%endblock%}

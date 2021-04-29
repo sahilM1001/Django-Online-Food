@@ -60,7 +60,10 @@ def orderlisting(request):
     return render(request, 'restaurants/order.html', {'order': data})
 
 def foodaddcreate(request):
-    return render(request, 'restaurants/addfood.html')   
+    cur.execute("SELECT * FROM `tbl_category` ORDER BY `category_id` ASC")
+    data = cur.fetchall()
+
+    return render(request, 'restaurants/addfood.html', {'categories': data})   
 
 
 def foodaddprocess(request):
@@ -70,11 +73,21 @@ def foodaddprocess(request):
         foodcategory = request.POST['txt2']
         foodname = request.POST['txt3']
         foodprice = request.POST['txt4']
-        cur.execute("INSERT INTO `onlinefoodordering`(`f_id`,`category_name`,`f_name`,`f_price`) VALUES ('{}','{}','{}','{}')".format(foodid,foodcategory,foodname,foodprice))
+        cur.execute("INSERT INTO `tbl_food_items`(`f_id`,`f_category_id`,`f_name`,`f_price`) VALUES ('{}','{}','{}','{}')".format(foodid,foodcategory,foodname,foodprice))
         conn.commit()
         return redirect(foodaddcreate) 
     else:
         return redirect(foodaddcreate)
+
+def foodDelete(request,id):
+     
+    #id = request.GET['id']
+    #id = User.objects.get(id=id)
+    print(id)
+    cur.execute("delete from `tbl_food_items` where `f_id` = {}".format(id))
+    conn.commit()
+    return redirect(foodlisting) 
+
 
 def restaurantLogout(request):
     return render(request, 'restaurants/logout.html')
